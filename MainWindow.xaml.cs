@@ -36,5 +36,18 @@ namespace AnimationTest
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
             ButtonOpenMenu.Visibility = Visibility.Visible;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // try user control v window
+            // grid v viewbox v stackpanel
+            View.Children.Clear();
+            switch (((Button)sender).Content)
+            {
+                case "Window":
+                    View.Children.Add(new ExampleUserWindow());
+                    break;
+            }
+        }
     }
 }

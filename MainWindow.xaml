@@ -19,11 +19,6 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="100"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        <Storyboard x:Key="RGB" Storyboard.TargetName="btnRGB">
-            <ColorAnimation Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)"
-                From="Red" To="Blue" Duration="0:0:2.5"
-                RepeatBehavior="Forever" AutoReverse="True"/>
-        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
@@ -32,24 +27,20 @@
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
             <BeginStoryboard Storyboard="{StaticResource CloseMenu}"/>
         </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnRGB">
-            <BeginStoryboard Storyboard="{StaticResource RGB}"></BeginStoryboard>
-        </EventTrigger>
     </Window.Triggers>
     <Viewbox>
         <StackPanel Orientation="Horizontal" Width="800" Height="425">
             <StackPanel Name="GridMenu" Width="100" Background="#FF282828">
                 <Button Name="ButtonOpenMenu" Margin="20" Click="ButtonOpenMenu_Click">Expand</Button>
                 <Button Name="ButtonCloseMenu" Margin="20" Visibility="Collapsed" Click="ButtonCloseMenu_Click">Collapse</Button>
-                <Button  Margin="10">Example</Button>
-                <Button  Margin="10">Example</Button>
-                <Button Margin="10">Example</Button>
-                <Button  Margin="10">Example</Button>
-                <Button  Margin="10">Example</Button>
+                <Button  Margin="10" Click="Button_Click">None</Button>
+                <Button  Margin="10" Click="Button_Click">Window</Button>
+                <Button Margin="10" Click="Button_Click">UserControl</Button>
+                <Button  Margin="10" Click="Button_Click">Example</Button>
+                <Button  Margin="10" Click="Button_Click">Example</Button>
             </StackPanel>
-            <Grid>
-                <Button Margin="214,197,-535,146.8" Content="RGB" Name="btnRGB">
-                </Button>
+            <Grid Name="View">
+
             </Grid>
         </StackPanel>
     </Viewbox>
